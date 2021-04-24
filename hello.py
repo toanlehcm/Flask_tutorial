@@ -1,6 +1,10 @@
 from flask import Flask, redirect, url_for, render_template
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+  return render_template('index.html')
+
 @app.route('/hello/<user>')
 def hello_name(user):
   return  render_template('hello.html', name = user)
@@ -10,7 +14,7 @@ def score(score):
   return render_template('score.html', marks = score)
 
 @app.route('/result')
-def method_name():
+def result():
   dict = {'phy':50, 'che':60, 'maths':70}
   return render_template('result.html', result = dict)
 
